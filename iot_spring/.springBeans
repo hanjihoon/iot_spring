@@ -7,7 +7,6 @@
 	</configSuffixes>
 	<enableImports><![CDATA[true]]></enableImports>
 	<configs>
-		<config>src/main/resources/beans.xml</config>
 		<config>src/main/resources/ioc.xml</config>
 	</configs>
 	<autoconfigs>
