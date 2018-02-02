@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="user">
+  
+  	<select id="selectUserList" resultType="u">
+  		SELECT * FROM USER_INFO;
+  	</select>
+  	
+  	<select id="selectUser" resultType="u" parameterType="int">
+  		SELECT * FROM USER_INFO where uiNo=#{uiNo};
+  	</select>
+  	
+  	<update id="updateUser" parameterType="u">
+  		update customer
+  		set customerName = #{customerName}
+  		where customerID = #{customerID}
+  	</update>
+  	
+  </mapper>

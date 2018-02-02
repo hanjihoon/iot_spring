@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>계산기</title>
+</head>
+<script>
+	var calObj = function(nId1, nId2, opId, rDivId) {
+		var nObj1 = document.getElementById(nId1);
+		var nObj2 = document.getElementById(nId2);
+		var opObj = document.getElementById(opId);
+		var rDivObj = document.getElementById(rDivId);
+
+		var getNumber = function(obj) {
+			return parseInt(obj.value);
+		}
+		var add = function(num1,num2) {
+			return num1 + num2;
+		}
+
+		this.setResult = function() {
+			var num1 = getNumber(nObj1);
+			var num2 = getNumber(nObj2);
+			var result = 0;
+			if (opObj.value == "+") {
+				result = add(num1,num2);
+			}
+			if (!isNaN(result)) {
+				rDivObj.innerHTML = result;
+			}
+		}
+	}
+	var cObj;
+	function init() {
+		cObj = new calObj("num1", "num2", "op", "resultDiv");
+	}
+	function chValue() {
+		cObj.setResult();
+	}
+</script>
+<body onload="init()">
+	숫자1 :
+	<input type="text" id="num1"/>
+	<select id="op">
+		<option value="+">더하기</option>
+		<option value="-">뺴기</option>
+		<option value="*">곱하기</option>
+		<option value="/">나누기</option>
+	</select> 숫자2 :
+	<input type="text" id="num2" onchange="chValue()"> =
+	<div id="resultDiv"></div>
+</body>
+</html>

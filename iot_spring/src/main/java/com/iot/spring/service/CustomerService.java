@@ -1,5 +1,9 @@
 package com.iot.spring.service;
 
-public interface CustomerService {
+import java.util.List;
 
+import com.iot.spring.User;
+
+public interface CustomerService {
+	public List<User> getCustomerList();
 }
