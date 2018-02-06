@@ -28,18 +28,17 @@
 		var go = new gridObj("resultDiv");
 		send("${root}/emp/getlist");
 	});
-	
-	function goView(url){
-		var empNo = $("#empNo").html;
-		alert(empNo);
-		return;
+
+	function goView(url) {
+		var empNo = $("#empNo").text();
+		var param = "empNo=" + empNo;
 		$.ajax({
 			url : url,
-			data: urlData,
+			data : param,
+			type : 'get',
 			success : function(res) {
-				alert(res);
 				var str = JSON.stringify(res);
-				location.href="url";
+				location.href = url;
 			}
 		})
 	}
@@ -63,11 +62,13 @@
 				<th>월급</th>
 			</tr>
 			<c:forEach items="${empList}" var="emp">
-				<tr onclick="goView('${root}/emp/view')" style="cursor:pointer;">
-					<th id="empNo">${emp.empNo}</th>
+				<form action="${pPath}/emp/emp_view">
+				<tr>
+					<th id="empNo"><button style="cursor: pointer" class="btn-block btn-outline-dark" name="empNo" value="${emp.empNo}">${emp.empNo}</button></th>
 					<th>${emp.empName}</th>
 					<th>${emp.empSal}</th>
 				</tr>
+				</form>
 			</c:forEach>
 		</table>
 		<a href="${pPath}/emp/write"><button>사원정보</button></a>

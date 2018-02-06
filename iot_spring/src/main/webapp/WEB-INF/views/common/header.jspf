@@ -66,12 +66,17 @@
 <script src="${rPath}/ui/js/jquery-3.2.1.js"></script>
 <script src="${rPath}/ui/js/grid-obj.js"></script>
 <script src="${rPath}/ui/js/bootstrap.min.js"></script>
+<script src="${rPath}/ui/js/bootstrap-table.js"></script>
+<script src="${rPath}/dx/dhtmlx.js"></script>
+
 <link rel="stylesheet" type="text/css"
 	href="${rPath}/ui/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css"
 	href="${rPath}/ui/css/bootstrap-theme.min.css" />
 <link rel="stylesheet" href="${rPath}/ui/css/animate.css" />
 <link rel="stylesheet" href="${rPath}/ui/css/header.css" />
+<link rel="stylesheet" href="${rPath}/ui/css/bootstrap-table.css" />
+<link rel="stylesheet" href="${rPath}/dx/dhtmlx.css" />
 
 
 <meta name="viewport" content="width=device-width, initial-scale=1">

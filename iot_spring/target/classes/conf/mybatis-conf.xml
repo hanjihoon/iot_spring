@@ -12,6 +12,7 @@
 	<typeAliases>
 		<typeAlias type="com.iot.spring.vo.Emp" alias="e" />
 		<typeAlias type="com.iot.spring.vo.User" alias="u" />
+		<typeAlias type="com.iot.spring.vo.Menu" alias="m" />
 	</typeAliases>
 	
 	<mappers>

@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>${title}</title>
 
-<jsp:include page="${hPath}" flush="false" />
+
 
 <body>
 <a href="${root}/emp/emp_list">사원리스트!</a>

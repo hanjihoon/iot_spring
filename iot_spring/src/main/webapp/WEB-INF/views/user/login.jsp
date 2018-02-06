@@ -5,7 +5,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Login</title>
 </head>
-<jsp:include page="${hPath}" flush="false" />
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex, nofollow">

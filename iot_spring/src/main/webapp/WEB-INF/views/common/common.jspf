@@ -3,15 +3,25 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <c:set var="root" value="${pageContext.request.contextPath}"></c:set>
 <c:set var="rPath" value="${root}/resources" />
 <c:set var="pPath" value="${root}/path" />
 <c:set var="hPath" value="/WEB-INF/views/common/header.jspf" />
+
 <script src="${rPath}/ui/js/jquery-3.2.1.js"></script>
 <script src="${rPath}/ui/js/grid-obj.js"></script>
 <script src="${rPath}/ui/js/bootstrap.min.js"></script>
+<script src="${rPath}/ui/js/common.js"></script>
+<script src="${rPath}/ui/js/bootstrap-table.js"></script>
+<script src="${rPath}/dx/dhtmlx.js"></script>
+
 <link rel="stylesheet" type="text/css"
 	href="${rPath}/ui/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css"
 	href="${rPath}/ui/css/bootstrap-theme.min.css" />
 <link rel="stylesheet" href="${rPath}/ui/css/animate.css" />
+<link rel="stylesheet" href="${rPath}/ui/css/bootstrap-table.css" />
+<link rel="stylesheet" href="${rPath}/dx/dhtmlx.css" />
+
+<jsp:include page="${hPath}" flush="false" />
