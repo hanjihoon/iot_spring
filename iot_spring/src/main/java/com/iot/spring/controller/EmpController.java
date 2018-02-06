@@ -2,6 +2,7 @@ package com.iot.spring.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
@@ -14,6 +15,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.iot.spring.service.EmpService;
 import com.iot.spring.vo.Emp;
@@ -38,19 +40,26 @@ public class EmpController {
 		return es.getSelectEmpList();
 	}
 
+	@RequestMapping(value = "/getview", method = RequestMethod.GET)
+	@ResponseBody
+	public Emp getEmpOne(Model m, HttpServletResponse res, HttpServletRequest req) {
+		int empNo = Integer.parseInt(req.getParameter("empNo"));
+		return es.getEmpOne(empNo);
+	}
+
 	@RequestMapping(value = "/insert", method = RequestMethod.GET)
-	public String insertEmp(@Valid Emp empDTO, Errors e, Model m) {
+	public ModelAndView insertEmp(@Valid Emp empDTO, Errors e, ModelAndView m) throws Exception {
 		int result = es.getInsertEmp(empDTO);
 		if (result == 1) {
-			m.addAttribute("msg", "추가 성공!!");
+			m.addObject("msg", "추가 성공!!");
 		}
 		if (e.hasErrors()) {
 			log.info("error =>{}", e);
-			m.addAttribute("errorMsg", e.getAllErrors());
-			return "error/error";
+			throw new Exception(e.getAllErrors().get(0).getDefaultMessage());
 		}
 
+		m.setViewName("emp/write");
 		log.info("insert result =>{}", empDTO);
-		return "emp/write";
+		return m;
 	}
 }

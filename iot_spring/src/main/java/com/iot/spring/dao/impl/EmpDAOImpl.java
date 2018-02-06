@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.iot.spring.dao.EmpDAO;
 import com.iot.spring.vo.Emp;
 
-@Repository
+@Repository("emp.dao")
 public class EmpDAOImpl implements EmpDAO {
 	@Autowired
 	private SqlSessionTemplate sst;
@@ -24,9 +24,9 @@ public class EmpDAOImpl implements EmpDAO {
 	}
 
 	@Override
-	public Emp selectEmpOne() {
-
-		return null;
+	public Emp selectEmpOne(int empNo) {
+		Emp e = sst.selectOne("emp.selectEmpOne", empNo);
+		return e;
 	}
 
 	@Override

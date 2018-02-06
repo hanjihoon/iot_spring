@@ -7,7 +7,7 @@ public class Won {
 	private int money;
 
 	public Won() {
-		System.out.println("원리 생성된다고?");
+		
 	}
 
 	public int getMoney() {

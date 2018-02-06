@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-난 뷰즈의 유저의 리스트의 리스트입니다.
+
 </body>
 </html>

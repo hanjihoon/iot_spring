@@ -12,7 +12,6 @@
 			url : url,
 			success : function(res) {
 				var dataStr = "";
-				var str = JSON.stringify(res);
 				for (var i = 0; i < res.length; i++) {
 					var data = res[i];
 					dataStr += "<tr>";
@@ -38,6 +37,7 @@
 			url : url,
 			data: urlData,
 			success : function(res) {
+				alert(res);
 				var str = JSON.stringify(res);
 				location.href="url";
 			}

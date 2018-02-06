@@ -11,10 +11,12 @@
 	
 	<typeAliases>
 		<typeAlias type="com.iot.spring.vo.Emp" alias="e" />
+		<typeAlias type="com.iot.spring.vo.User" alias="u" />
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="sql/emp.xml" />
+		<mapper resource="sql/user.xml" />
 	</mappers>
 	
 </configuration>

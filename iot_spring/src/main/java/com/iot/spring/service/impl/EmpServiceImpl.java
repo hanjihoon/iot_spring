@@ -24,9 +24,9 @@ public class EmpServiceImpl implements EmpService {
 	}
 
 	@Override
-	public Emp getEmpOne() {
-		
-		return null;
+	public Emp getEmpOne(int empNo) {
+		Emp e = edao.selectEmpOne(empNo);
+		return e;
 	}
 
 	@Override

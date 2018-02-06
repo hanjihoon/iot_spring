@@ -6,13 +6,13 @@
 	<select id="selectEmpList" resultType="e">
 		SELECT empNo,empName,empSal FROM EMP;
 	</select>
-	<select id="selectEmp" resultType="e" parameterType="int">
-		SELECT * FROM EMP where emp=#{empno};
+	<select id="selectEmpOne" resultType="e" parameterType="int">
+		SELECT empNo,empName,empSal FROM EMP where empNo=#{empNo};
 	</select>
 	<update id="updateEmp" parameterType="e">
-		update customer
-		set customerName = #{customerName}
-		where customerID = #{customerID}
+		update emp
+		set empName = #{empName},empSal = #{empSal}
+		where empNo = #{empNo}
 	</update>
 	<insert id="insertEmp" parameterType="e">
 		insert into emp(empName,empSal)

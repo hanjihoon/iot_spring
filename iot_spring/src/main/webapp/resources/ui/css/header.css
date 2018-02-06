@@ -1,0 +1,44 @@
+@charset "EUC-KR";
+
+.view1 {
+	background:
+		url("https://mdbootstrap.com/img/Photos/Others/img (40).jpg")
+		no-repeat center center;
+}
+
+.view2 {
+	background:
+		url("http://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.r92.cf1.rackcdn.com/unsplash_52d09387ae003_1.JPG")
+		no-repeat center center;
+}
+
+.view3 {
+	background:
+		url("http://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.r92.cf1.rackcdn.com/unsplash_52cf9489095e8_1.JPG")
+		no-repeat center center;
+}
+
+.view4 {
+	background:
+		url("http://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.r92.cf1.rackcdn.com/unsplash_52c470899a2e1_1.JPG")
+		no-repeat center center;
+}
+
+.view5 {
+	background:
+		url("http://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.r92.cf1.rackcdn.com/unsplash_52cd36aac6bed_1.JPG")
+		no-repeat center center;
+}
+
+.navbar {
+	background-color: transparent;
+}
+
+.top-nav-collapse {
+	background-color: #4285F4;
+}
+
+@media only screen and (max-width: 768px) {
+	.navbar {
+		background-color: #4285F4;
+	}

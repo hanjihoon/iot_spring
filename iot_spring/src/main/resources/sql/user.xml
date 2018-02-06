@@ -5,17 +5,13 @@
   <mapper namespace="user">
   
   	<select id="selectUserList" resultType="u">
-  		SELECT * FROM USER_INFO;
+  		SELECT uiNo,uiName,uiAge,uiId,address,ciNo,uiRegdate FROM USER_INFO;
   	</select>
   	
   	<select id="selectUser" resultType="u" parameterType="int">
-  		SELECT * FROM USER_INFO where uiNo=#{uiNo};
+  		SELECT userNo,userName,userAge,userId,userAddress,ciNo FROM USER_INFO where uiNo=#{uiNo};
   	</select>
   	
-  	<update id="updateUser" parameterType="u">
-  		update customer
-  		set customerName = #{customerName}
-  		where customerID = #{customerID}
-  	</update>
+ 
   	
   </mapper>
