@@ -1,11 +1,4 @@
-<%-- <%@page import="com.iot.test.vo.UserClass"%> --%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<c:set var="root" value="${pageContext.request.contextPath}"></c:set>
-<c:set var="rPath" value="${root}/resources" />
+
 <%
 	String rootPath = request.getContextPath();
 	String uri = request.getRequestURI();
@@ -13,70 +6,31 @@
 	if(uri.indexOf("login")==-1 && uri.indexOf("signin")==-1 && user==null){
 		response.sendRedirect("/view/user/login");
 	} */
-	String a = "";
-	String a1 = "";
-	String a2 = "";
-	String a3 = "";
-	String a4 = "";
-	String a5 = "";
-
-	String h2 = "";
-	String h2e = "";
-	String h3 = "";
-	String h3e = "";
-
-	String view = "";
 	String loginMenu = "Login";
 	String loginUrl = rootPath + "/path/user/login";
 
-	String url = request.getRequestURL().toString();
-	String param = request.getParameter("menu");
-
-	if (url.indexOf("index.jsp") != -1) {
-		view = "view1";
-		a = "active";
-
-	} else if (param.equals("test1")) {
-		view = "view2";
-		a1 = "active";
-	} else if (param.equals("test2")) {
-		view = "view3";
-
-	} else if (param.equals("test3")) {
-		view = "view4";
-		a2 = "active";
-		h2 = "<h2>";
-		h2e = "</h2>";
-		h3 = "<h3>";
-		h3e = "</h3>";
-	} else if (param.equals("test4")) {
-		view = "view5";
-		a3 = "active";
-		h2 = "<h2>";
-		h2e = "</h2>";
-		h3 = "<h3>";
-		h3e = "</h3>";
+	int idx = uri.lastIndexOf("/");
+	if (idx != -1) {
+		uri = uri.substring(14, idx + 1);
 	}
 %>
-<c:set var="root" value="${pageContext.request.contextPath}"></c:set>
-<c:set var="ver" value="?version=1.0.0" />
-<c:set var="rPath" value="${root}/resources" />
-<c:set var="pPath" value="${root}/path" />
-<c:set var="hPath" value="${root}/WEB-INF/view/common/header.jspf" />
-<script src="${rPath}/ui/js/jquery-3.2.1.js"></script>
-<script src="${rPath}/ui/js/grid-obj.js"></script>
-<script src="${rPath}/ui/js/bootstrap.min.js"></script>
-<script src="${rPath}/ui/js/bootstrap-table.js"></script>
-<script src="${rPath}/dx/dhtmlx.js"></script>
-
-<link rel="stylesheet" type="text/css"
-	href="${rPath}/ui/css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css"
-	href="${rPath}/ui/css/bootstrap-theme.min.css" />
-<link rel="stylesheet" href="${rPath}/ui/css/animate.css" />
-<link rel="stylesheet" href="${rPath}/ui/css/header.css" />
-<link rel="stylesheet" href="${rPath}/ui/css/bootstrap-table.css" />
-<link rel="stylesheet" href="${rPath}/dx/dhtmlx.css" />
+<script>
+$(document).ready(function(){
+	var view = "view";
+	var uri = "<%=uri%>";
+	$("li a[href='<%=uri%>']").parent().attr("class","active");
+	if(uri.indexOf("/")!=-1){
+		view += "1";
+	}else if(uri.indexOf("login")!=-1){
+		view += "2";
+	}else if(uri.indexOf("user_list")!=-1){
+		view += "3";
+	}else if(uri.indexOf("class_list")!=-1){
+		view += "4";
+	}else{}
+	$("#headerimg").attr("class",view);
+})
+</script>
 
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -91,8 +45,8 @@
 
 		<nav id="nav"
 			class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
-			<a class="navbar-brand animated wobble <%=a%>" href="<%=rootPath%>/">IOT
-					DB</a>
+			<a id=1 class="navbar-brand animated wobble" href="<%=rootPath%>/">IOT
+				DB</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -101,19 +55,18 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item <%=a1%>"><a class="nav-link"
-						href="<%=loginUrl%>?menu=test1"><%=loginMenu%><span
-							class="sr-only">(current)</span></a></li>
-					<li class="nav-item <%=a2%>"><a class="nav-link"
-						href="<%=rootPath%>/path/user/user_list?menu=test3">User List</a></li>
-					<li class="nav-item <%=a3%>"><a class="nav-link"
-						href="/view/classinfo/list?menu=test4">Class List</a></li>
+					<li id="2" class="nav-item"><a class="nav-link"
+						href="<%=loginUrl%>"><%=loginMenu%><span class="sr-only">(current)</span></a></li>
+					<li id="3" class="nav-item"><a class="nav-link"
+						href="<%=rootPath%>/path/user/user_list">User List</a></li>
+					<li id="4" class="nav-item"><a class="nav-link"
+						href="/view/classinfo/list">Class List</a></li>
 				</ul>
 			</div>
 		</nav>
 
 		<div id="headerimg"
-			class="<%=view%> intro hm-purple-light animated bounceInLeft"
+			class="intro hm-purple-light animated bounceInLeft"
 			style="height: 300px;"></div>
 
 	</header>

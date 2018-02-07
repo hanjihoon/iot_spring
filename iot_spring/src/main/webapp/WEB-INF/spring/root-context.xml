@@ -36,4 +36,6 @@
 		<property name="target" value="ko"></property>
 	</bean>
 	
+	<bean class="org.codehaus.jackson.map.ObjectMapper"></bean>
+	
 </beans>

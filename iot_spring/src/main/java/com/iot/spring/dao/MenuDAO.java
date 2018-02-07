@@ -1,5 +1,9 @@
 package com.iot.spring.dao;
 
-public interface MenuDAO {
+import java.util.List;
 
+import com.iot.spring.vo.Menu;
+
+public interface MenuDAO {
+	public List<Menu> selectMenuList();
 }

@@ -3,7 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
 <c:set var="root" value="${pageContext.request.contextPath}"></c:set>
 <c:set var="rPath" value="${root}/resources" />
 <c:set var="pPath" value="${root}/path" />
@@ -23,5 +22,7 @@
 <link rel="stylesheet" href="${rPath}/ui/css/animate.css" />
 <link rel="stylesheet" href="${rPath}/ui/css/bootstrap-table.css" />
 <link rel="stylesheet" href="${rPath}/dx/dhtmlx.css" />
+<link rel="stylesheet" href="${rPath}/dx/fonts/font_roboto/roboto.css" />
+<link rel="stylesheet" href="${rPath}/ui/css/header.css" />
 
 <jsp:include page="${hPath}" flush="false" />
