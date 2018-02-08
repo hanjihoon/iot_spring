@@ -89,18 +89,9 @@ div#winVP {
 		}
 
 		];
-		//formObj.push(setting);
 
-		/*var tt = [
-		    {type:"fieldset", name:"data", label:"Welcome", inputWidth:"auto", list:[
-		        {type:"input",    name: "name", label:"Login"},
-		        {type:"password", name:"pass",  label:"Password"},  
-		        {type:"button",   name:"save",  value:"Proceed"}] 
-		    }
-		]*/
 
 		var form = popW.attachForm(formObj, true);
-		//popW.attachForm(tt,true);
 
 		form.attachEvent("onButtonClick", function(id) {
 			if (id == "saveBtn") {

@@ -1,5 +1,7 @@
 package com.iot.spring.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.iot.spring.service.MenuService;
+import com.iot.spring.vo.Menu;
 
 @Controller
 public class UrlController {
@@ -26,20 +29,23 @@ public class UrlController {
 	}	
 
 	@RequestMapping("/path/**")
-	public String forwardJsp(HttpServletRequest request) {
-		String url = request.getRequestURI();
-		String rootPath = request.getContextPath();
+	public String forwardJsp(HttpServletRequest req) {
+		String url = req.getRequestURI();
+		String rootPath = req.getContextPath();
 		url = getUrl(url, rootPath);
 		logger.info("path =>{}", url);
+		List<Menu> menuList = ms.getSelectMenuList();
+		req.setAttribute("menuList", menuList);
 
 		return url;
 
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model,HttpServletRequest request) {
+	public String home(Locale locale, Model model,HttpServletRequest req) {
 		model.addAttribute("title", "IOT-SPRING-2");
-
+		List<Menu> menuList = ms.getSelectMenuList();
+		req.setAttribute("menuList", menuList);
 		return "index";
 	}
 }

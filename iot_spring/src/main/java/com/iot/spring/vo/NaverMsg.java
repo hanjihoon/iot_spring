@@ -1,7 +1,9 @@
 package com.iot.spring.vo;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+import org.springframework.stereotype.Component;
 
+@Component
 public class NaverMsg {
 	private Message message;
 

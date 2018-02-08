@@ -1,5 +1,8 @@
 package com.iot.spring.vo;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Menu {
 	private int mNum;
 	private String mName;

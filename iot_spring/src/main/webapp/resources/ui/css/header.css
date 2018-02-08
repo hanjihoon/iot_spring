@@ -30,6 +30,34 @@
 		no-repeat center center;
 }
 
+.view6 {
+	background-img: url("/resources/ui/img/bridge.jsp") no-repeat center center;
+}
+
+.view7 {
+	background: url("./img/buildings.jpg") no-repeat center center;
+}
+
+.view8 {
+	background: url("./img/dark_sky.jpg") no-repeat center center;
+}
+
+.view9 {
+	background: url("./img/dragon_fly.jpg") no-repeat center center;
+}
+
+.view10 {
+	background: url("./img/river_house.jpg") no-repeat center center;
+}
+
+.view11 {
+	background: url("./img/tree.jpg") no-repeat center center;
+}
+
+.view12 {
+	background: url("./img/we_are_happy.jpg") no-repeat center center;
+}
+
 .navbar {
 	background-color: transparent;
 }
@@ -42,3 +70,4 @@
 	.navbar {
 		background-color: #4285F4;
 	}
+}

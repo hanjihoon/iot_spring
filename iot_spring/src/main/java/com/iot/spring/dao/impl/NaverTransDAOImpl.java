@@ -84,13 +84,13 @@ public class NaverTransDAOImpl implements NaverTransDAO {
 		BufferedReader br = null;
 		try {
 			String text = URLEncoder.encode(eMsg, "UTF-8");
-			URL url = new URL(getApiURL());
+			URL url = new URL(apiURL);
 			con = (HttpURLConnection) url.openConnection();
 			con.setRequestMethod("POST");
-			con.setRequestProperty(getClientIdAdd(), getClientId());
-			con.setRequestProperty(getClientSecretAdd(), getClientSecret());
+			con.setRequestProperty(clientIdAdd, clientId);
+			con.setRequestProperty(clientSecretAdd, clientSecret);
 			// post request
-			String postParams = "source=" + getSource() + "&target=" + getTarget() + "&text=" + text;
+			String postParams = "source=" + source + "&target=" + target + "&text=" + text;
 			con.setDoOutput(true);
 			DataOutputStream wr = new DataOutputStream(con.getOutputStream());
 			wr.writeBytes(postParams);

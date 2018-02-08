@@ -1,5 +1,11 @@
 package com.iot.spring.vo;
 
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.stereotype.Component;
+
+@Component
 public class ConnectionInfoVo {
 	private int	ciNo;
 	private String ciName;
@@ -9,6 +15,15 @@ public class ConnectionInfoVo {
 	private String ciUser;
 	private String ciPwd;
 	private String ciEtc;
+	private List<Map<String,Object>> database;
+	
+	
+	public List<Map<String, Object>> getDatabase() {
+		return database;
+	}
+	public void setDatabase(List<Map<String, Object>> database) {
+		this.database = database;
+	}
 	public int getCiNo() {
 		return ciNo;
 	}
@@ -60,7 +75,8 @@ public class ConnectionInfoVo {
 	@Override
 	public String toString() {
 		return "ConnectionInfoVo [ciNo=" + ciNo + ", ciName=" + ciName + ", ciUrl=" + ciUrl + ", ciPort=" + ciPort
-				+ ", ciDatabase=" + ciDatabase + ", ciUser=" + ciUser + ", ciPwd=" + ciPwd + ", ciEtc=" + ciEtc + "]";
+				+ ", ciDatabase=" + ciDatabase + ", ciUser=" + ciUser + ", ciPwd=" + ciPwd + ", ciEtc=" + ciEtc
+				+ ", database=" + database + "]";
 	}
 	
 }

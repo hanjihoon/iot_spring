@@ -1,5 +1,8 @@
 package com.iot.spring.vo;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Emp {
 	private int empNo;
 	private String empName;

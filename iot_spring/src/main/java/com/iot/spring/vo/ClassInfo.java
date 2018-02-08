@@ -1,5 +1,8 @@
 package com.iot.spring.vo;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class ClassInfo {
 	private int ciNo;
 	private String ciName;

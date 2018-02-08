@@ -5,7 +5,7 @@
   <mapper namespace="menu">
   
   	<select id="selectMenuList" resultType="m">
-  		SELECT mName,mURL FROM menu;
+  		SELECT mNum,mName,mURL FROM menu;
   	</select>
   	
  
