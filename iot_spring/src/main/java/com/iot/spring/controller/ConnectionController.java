@@ -33,8 +33,7 @@ public class ConnectionController {
 	ObjectMapper om;
 
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
-	public @ResponseBody Map<String, Object> insertConnectionInfo(@RequestParam Map<String, Object> map,
-			HttpServletRequest res) {
+	public @ResponseBody Map<String, Object> insertConnectionInfo(@RequestParam Map<String, Object> map) {
 		ConnectionInfoVo ci = om.convertValue(map, ConnectionInfoVo.class);
 		log.info("ConneciontInfoVo=>{}", ci);
 		cs.getInsertConnectionInfo(map, ci);
@@ -42,8 +41,7 @@ public class ConnectionController {
 	}
 
 	@RequestMapping(value = "/db_list", method = RequestMethod.GET)
-	public @ResponseBody Map<String, Object> getDatabaseList(@RequestParam Map<String, Object> map,
-			HttpServletRequest res) {
+	public @ResponseBody Map<String, Object> getDatabaseList(@RequestParam Map<String, Object> map) {
 		List<Map<String, Object>> dbList = cs.getDatabaseList();
 		map.put("dbList", dbList);
 		return map;
@@ -51,7 +49,7 @@ public class ConnectionController {
 
 	@RequestMapping(value = "/tables/{dbName}", method = RequestMethod.GET)
 	public @ResponseBody Map<String, Object> getTableList(@PathVariable("dbName") String dbName,
-			@RequestParam Map<String, Object> map, HttpServletRequest res) {
+			@RequestParam Map<String, Object> map) {
 		List<TableVo> tableList = cs.getTableList(dbName);
 		map.put("tableList", tableList);
 		return map;
@@ -59,7 +57,7 @@ public class ConnectionController {
 
 	@RequestMapping(value = "/columns/{dbName}/{tbName}", method = RequestMethod.GET)
 	public @ResponseBody Map<String, Object> getColumnList(@PathVariable("dbName") String dbName,
-			@PathVariable("tbName") String tbName, @RequestParam Map<String, Object> map, HttpServletRequest res) {
+			@PathVariable("tbName") String tbName, @RequestParam Map<String, Object> map) {
 		Map<String,String> dTName = new HashMap<String,String>();
 		dTName.put("dbName",dbName);
 		dTName.put("tbName",tbName);

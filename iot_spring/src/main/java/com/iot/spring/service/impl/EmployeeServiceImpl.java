@@ -17,29 +17,35 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public List<EmployeeVo> getSelectEmployeeList() {
-		List<EmployeeVo> employeeList = new ArrayList<EmployeeVo>();
-		employeeList = edao.selectEmployeeList();
+		List<EmployeeVo> employeeList = edao.selectEmployeeList();
 		return employeeList;
 	}
 
 	@Override
-	public EmployeeVo getEmployeeOne() {
-		return null;
+	public EmployeeVo getEmployeeOne(int emNo) {
+		EmployeeVo em = edao.selectEmployeeOne(emNo);
+		return em;
 	}
 
 	@Override
 	public int getInsertEmployee(EmployeeVo u) {
-		return 0;
+		int result = 0;
+		result = edao.insertEmployee(u);
+		return result;
 	}
 
 	@Override
 	public int getDeleteEmployee(int emNo) {
-		return 0;
+		int result = 0;
+		result = edao.deleteEmployee(emNo);
+		return result;
 	}
 
 	@Override
 	public int getUpdateEmployee(EmployeeVo u) {
-		return 0;
+		int result = 0;
+		result = edao.updateEmployee(u);
+		return result;
 	}
 
 }

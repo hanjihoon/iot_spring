@@ -2,16 +2,34 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  <mapper namespace="em">
-  
-  	<select id="selectEmployeeList" resultType="em">
-  		SELECT emNo,emName,emId,dpNo,emAd,emEmail,emPhone FROM em_INFO;
-  	</select>
-  	
-  	<select id="selectEmployee" resultType="em" parameterType="int">
-  		SELECT emNo,emName,emId,dpNo,emAd,emEmail,emPhone,emSal,emPwd,emReg FROM EM_INFO where emNo=#{emNo};
-  	</select>
-  	
- 
-  	
-  </mapper>
+<mapper namespace="em">
+
+	<select id="selectEmployeeList" resultType="em">
+		SELECT
+		emNo,emName,emId,dpNo,emAd,emEmail,emPhone FROM EM_INFO;
+	</select>
+
+	<select id="selectEmployee" resultType="em" parameterType="int">
+		SELECT emNo,emName,emId,dpNo,emAd,emEmail,emPhone,emSal,emPwd,emReg
+		FROM EM_INFO where emNo=#{emNo};
+	</select>
+
+	<insert id="insertEmployee" parameterType="em">
+		insert into
+		em_info(emName,emId,dpNo,emAd,emEmail,emPhone,emSal,emPwd,emReg)
+		values(#{emName},#{emId},#{dpNo},#{emAd},#{emEmail},#{emPhone},#{emSal},#{emPwd},#{emReg})
+	</insert>
+
+	<delete id="deleteEmployee" parameterType="int">
+		delete from EM_INFO
+		where emNo = #{emNo}
+	</delete>
+
+	<update id="updateEmployee" parameterType="em">
+		update EM_INFO
+		set
+		emName=#{emName},dpNo=#{dpNo},emAd=#{emAd},emEmail=#{emEmail},emPhone=#{emPhone},emSal=#{emSal},emPwd=#{emPwd},emReg=#{emReg}
+		where emNo = #{emNo}
+	</update>
+
+</mapper>

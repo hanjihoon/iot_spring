@@ -23,23 +23,31 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	}
 
 	@Override
-	public EmployeeVo selectEmployeeOne() {
-		return null;
+	public EmployeeVo selectEmployeeOne(int emNo) {
+		EmployeeVo em = new EmployeeVo();
+		em = sst.selectOne("em.selectEmployee", emNo);
+		return em;
 	}
 
 	@Override
 	public int insertEmployee(EmployeeVo e) {
-		return 0;
+		int result = 0;
+		result = sst.insert("em.insertEmployee", e);
+		return result;
 	}
 
 	@Override
 	public int deleteEmployee(int emNo) {
-		return 0;
+		int result = 0;
+		result = sst.delete("em.deleteEmployee", emNo);
+		return result;
 	}
 
 	@Override
 	public int updateEmployee(EmployeeVo e) {
-		return 0;
+		int result = 0;
+		result = sst.update("em.updateEmployee", e);
+		return result;
 	}
 
 }
